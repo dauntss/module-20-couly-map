@@ -2,6 +2,7 @@ import L from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const Map: React.FC = () => {
   const [mapContainer, setMapContainer] = useState<HTMLElement | null>(null);
@@ -48,9 +49,9 @@ const Map: React.FC = () => {
       });
 
       // Kingdom Markers
-      const k_baria = L.marker([-22, -35], {icon: kingdomIcon}).bindPopup('<b>Kingdom of Baria</b>');
-      const k_flok = L.marker([4, -19], {icon: kingdomIcon}).bindPopup('<b>Kingdom of Flok</b>');
-      const k_marl = L.marker([-42, -25], {icon: kingdomIcon}).bindPopup('<b>Grand Duchy of Marl</b>');
+      const k_baria = L.marker([-22, -35], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/baria">Kingdom of Baria</a></b>');
+      const k_flok = L.marker([4, -19], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/flok">Kingdom of Flok</a></b>');
+      const k_marl = L.marker([-42, -25], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/marl">Grand Duchy of Marl</a></b>');
       const k_thetbia = L.marker([-33, -59], {icon: kingdomIcon}).bindPopup('<b>Kingdom of Thetbia</b>');
       const k_bolia = L.marker([2, -52], {icon: kingdomIcon}).bindPopup('<b>Principality of Bolia</b>');
       const k_tut = L.marker([25, -94], {icon: kingdomIcon}).bindPopup('<b>Tuteshilese Empire</b>');

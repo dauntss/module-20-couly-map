@@ -1,5 +1,6 @@
 interface WikiProps {
   kingdom: string;
+  img: string;
   capital: string;
   climate: string;
   demographics: string;
@@ -9,6 +10,7 @@ export default function Wiki(props: WikiProps) {
   return (
     <div>
       <h1>{props.kingdom}</h1>
+      <img className="wikiHero" src={props.img} alt={props.kingdom} />
         <table>
           <tbody>
               <tr>
