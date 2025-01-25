@@ -1,0 +1,42 @@
+:root {
+    --gold: #c8a985;
+}
+
+h1 {
+    font-family:Cinzel, serif;
+    text-align:center;
+}
+
+.wikiHero {
+    width:100%;
+    margin:-1px 0 0 -4px;
+    border-bottom:2px solid var(--gold);
+}
+
+table {
+    width:30%;
+    min-width:300px;
+    max-width:800px;
+    margin: 0 auto;
+    display:block;
+    border-image:url('/images/border.png') 45 / 45px round;
+    padding:5px 4px 15px;
+  }
+  td {
+    border: 0;
+    vertical-align:top;
+}
+
+td:nth-child(odd) {
+    font-family:Cinzel, serif;
+    font-weight:bold;
+    text-decoration: underline;
+    text-align:right;
+    color:var(--gold);
+    padding:5px;
+}
+
+td:nth-child(even) {
+    font-family:Lusitana, serif;
+    padding: 5px;
+}
