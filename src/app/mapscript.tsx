@@ -52,11 +52,11 @@ const Map: React.FC = () => {
       const k_baria = L.marker([-22, -35], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/baria">Kingdom of Baria</a></b>');
       const k_flok = L.marker([4, -19], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/flok">Kingdom of Flok</a></b>');
       const k_marl = L.marker([-42, -25], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/marl">Grand Duchy of Marl</a></b>');
-      const k_thetbia = L.marker([-33, -59], {icon: kingdomIcon}).bindPopup('<b>Kingdom of Thetbia</b>');
-      const k_bolia = L.marker([2, -52], {icon: kingdomIcon}).bindPopup('<b>Principality of Bolia</b>');
-      const k_tut = L.marker([25, -94], {icon: kingdomIcon}).bindPopup('<b>Tuteshilese Empire</b>');
-      const k_hinck = L.marker([-4, -137], {icon: kingdomIcon}).bindPopup('<b>Kingdom of Hinck</b>');
-      const k_berden = L.marker([-22, -86], {icon: kingdomIcon}).bindPopup('<b>Kingdom of Berden</b>');
+      const k_thetbia = L.marker([-33, -59], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/thetbia">Kingdom of Thetbia</a></b>');
+      const k_bolia = L.marker([2, -52], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/bolia">Principality of Bolia</a></b>');
+      const k_tut = L.marker([25, -94], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/tut">Tuteshilese Empire</a></b>');
+      const k_hinck = L.marker([-4, -137], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/hinck">Kingdom of Hinck</a></b>');
+      const k_berden = L.marker([-22, -86], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/berden">Kingdom of Berden</a></b>');
       const k_westland = L.marker([1, 26], {icon: kingdomIcon}).bindPopup('<b>Dominion of Westland</b>');
       const k_mil = L.marker([-1, 51], {icon: kingdomIcon}).bindPopup('<b>Kingdom of Mil</b>');
       const k_car = L.marker([39, 40], {icon: kingdomIcon}).bindPopup('<b>Principality of Car</b>');
