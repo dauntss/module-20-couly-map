@@ -7,6 +7,13 @@ h1 {
     text-align:center;
 }
 
+.comments {
+    font-family:Lusitana, serif;
+    font-size:1.2em;
+    text-align:center;
+    color:var(--gold);
+}
+
 .wikiHero {
     width:100%;
     margin:-1px 0 0 -4px;
