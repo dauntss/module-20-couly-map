@@ -60,6 +60,19 @@ td:nth-child(even) {
     border-color:var(--gold);
 }
 
+.singleComment {
+    padding:10px;
+    margin: 15px 50px;
+    background:var(--gold);
+    color:var(--background);
+    border-radius:10px;
+
+    h3 {
+        font-family:Cinzel, serif;
+        margin:0;
+    }
+}
+
 @media screen and (max-width: 500px) {
     .kingdoms, .sites {
         flex-direction:column;
