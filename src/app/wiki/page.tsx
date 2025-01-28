@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 interface Comment {
   id: string;
-  userid: string;
+  username: string;
   commenttext: string;
 }
 
@@ -68,31 +68,35 @@ export default function Page() {
         <main>
           <h1>Wiki</h1>
           <h2>Kingdoms</h2>
-          {kingdoms.map((kingdom) => {
-            const kingdomInfo = kingdomData[kingdom];
-            const nickname = kingdomInfo ? kingdomInfo.nickname : 'default-nickname';
+          <div className="kingdoms">
+            {kingdoms.map((kingdom) => {
+              const kingdomInfo = kingdomData[kingdom];
+              const nickname = kingdomInfo ? kingdomInfo.nickname : 'default-nickname';
 
-            return (
-                <Link href={`/wiki/${nickname}`} key={kingdom}>
-                    {kingdom}
-                </Link>
-            );
-            })}
+              return (
+                  <Link href={`/wiki/${nickname}`} key={kingdom}>
+                      {kingdom}
+                  </Link>
+              );
+              })}
+          </div>
           <h2>Significant Sites</h2>
-          {sites.map((site) => {
-            const siteInfo = sitesData[site];
-            const url = siteInfo ? siteInfo.url : 'default-url';
+          <div className="sites">
+            {sites.map((site) => {
+              const siteInfo = sitesData[site];
+              const url = siteInfo ? siteInfo.url : 'default-url';
 
-            return (
-            <Link href={`/wiki/${url}`} key={site}>
-                {site}
-            </Link>
-          )}
-          )}
+              return (
+              <Link href={`/wiki/${url}`} key={site}>
+                  {site}
+              </Link>
+            )}
+            )}
+            </div>
           <h2>Comments</h2>
           {data.map((comment) => (
-            <div key={comment.id}>
-              <h2>{comment.userid}</h2>
+            <div className="singleComment" key={comment.id}>
+              <h3>{comment.username}</h3>
               <p>{comment.commenttext}</p>
             </div>
           ))}
