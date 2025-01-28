@@ -1,3 +1,5 @@
+'use server';
+
 import { neon } from '@neondatabase/serverless';
 
 if (!process.env.NEXT_PUBLIC_DATABASE_URL) {
@@ -17,5 +19,5 @@ export async function users() {
 
 export async function comments() {
   const response = await sql`SELECT * FROM comments`;
-  return response[0];
+  return response;
 }

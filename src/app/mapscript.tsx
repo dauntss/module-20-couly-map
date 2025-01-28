@@ -57,12 +57,12 @@ const Map: React.FC = () => {
       const k_tut = L.marker([25, -94], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/tut">Tuteshilese Empire</a></b>');
       const k_hinck = L.marker([-4, -137], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/hinck">Kingdom of Hinck</a></b>');
       const k_berden = L.marker([-22, -86], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/berden">Kingdom of Berden</a></b>');
-      const k_westland = L.marker([1, 26], {icon: kingdomIcon}).bindPopup('<b>Dominion of Westland</b>');
-      const k_mil = L.marker([-1, 51], {icon: kingdomIcon}).bindPopup('<b>Kingdom of Mil</b>');
-      const k_car = L.marker([39, 40], {icon: kingdomIcon}).bindPopup('<b>Principality of Car</b>');
-      const k_god = L.marker([-24, 59], {icon: kingdomIcon}).bindPopup('<b>Kingdom of God</b>');
-      const k_bet = L.marker([42, 95], {icon: kingdomIcon}).bindPopup('<b>Grand Duchy of Bet</b>');
-      const k_amer = L.marker([-8, 103], {icon: kingdomIcon}).bindPopup('<b>Amerish Empire</b>');
+      const k_westland = L.marker([1, 26], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/westland">Dominion of Westland</a></b>');
+      const k_mil = L.marker([-1, 51], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/mil">Kingdom of Mil</a></b>');
+      const k_car = L.marker([39, 40], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/car">Principality of Car</a></b>');
+      const k_god = L.marker([-24, 59], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/god">Kingdom of God</a></b>');
+      const k_bet = L.marker([42, 95], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/bet">Grand Duchy of Bet</a></b>');
+      const k_amer = L.marker([-8, 103], {icon: kingdomIcon}).bindPopup('<b><a href="./wiki/amer">Amerish Empire</a></b>');
       //Capitol Markers
       const c_baria = L.marker([-12, -46], {icon: capitolIcon}).bindPopup('Charton');
       const c_flok = L.marker([21, -16], {icon: capitolIcon}).bindPopup('Bleches');
@@ -79,15 +79,15 @@ const Map: React.FC = () => {
       const c_bet = L.marker([38, 89], {icon: capitolIcon}).bindPopup('Wiveford');
       const c_amer = L.marker([23, 11], {icon: capitolIcon}).bindPopup('Bridmanch');
       //Significant Site Markers
-      const s_shiresberg = L.marker([14, -131], {icon: siteIcon}).bindPopup('Shiresberg Holy Site');
-      const s_claggish = L.marker([-57, -55], {icon: siteIcon}).bindPopup('Former Claggish Empire');
-      const s_pickerketon = L.marker([33, 120], {icon: siteIcon}).bindPopup('Pickerketon Island');
-      const s_mergish = L.marker([5, 60], {icon: siteIcon}).bindPopup('Lake Mergish');
-      const s_jatarah = L.marker([-20, 19], {icon: siteIcon}).bindPopup('Jatarah Island');
+      const s_shiresberg = L.marker([14, -131], {icon: siteIcon}).bindPopup('<a href="./wiki/shiresberg">Shiresberg Holy Site</a>');
+      const s_clag = L.marker([-57, -55], {icon: siteIcon}).bindPopup('<a href="./wiki/clag">Former Claggish Empire</a>');
+      const s_pickerketon = L.marker([33, 120], {icon: siteIcon}).bindPopup('<a href="./wiki/pickerketon">Pickerketon Island</a>');
+      const s_mergish = L.marker([5, 60], {icon: siteIcon}).bindPopup('<a href="./wiki/mergish">Lake Mergish</a>');
+      const s_jatarah = L.marker([-20, 19], {icon: siteIcon}).bindPopup('<a href="./wiki/jatarah">Jatarah Island</a>');
       //Marker Groups
       const kingdoms = L.layerGroup([k_baria, k_flok, k_marl, k_thetbia, k_bolia, k_tut, k_hinck, k_berden, k_westland, k_mil, k_car, k_god, k_bet, k_amer]).addTo(map);
       const capitols = L.layerGroup([c_baria, c_flok, c_marl, c_thetbia, c_bolia, c_tut, c_hinck, c_berden, c_westland, c_mil, c_car, c_god, c_bet, c_amer]);
-      const sites = L.layerGroup([s_shiresberg, s_claggish, s_pickerketon, s_mergish, s_jatarah]);
+      const sites = L.layerGroup([s_shiresberg, s_clag, s_pickerketon, s_mergish, s_jatarah]);
       // Marker overlay
       const overlayMaps = {
         "Kingdoms": kingdoms,
