@@ -24,24 +24,19 @@ class AuthService {
     }
   }
 
-  getToken(): string | null {  // Return null if no token
-    if (typeof window !== 'undefined') { // Check if it's client-side
-      const loggedUser = localStorage.getItem('token');
-      return loggedUser || null; // Return null if no token
-    }
-    return null; // Return null on the server
+  getToken(): string {
+    const loggedUser = localStorage.getItem('token') || '';
+    return loggedUser;
   }
 
   login(idToken: string) {
-    if (typeof window !== 'undefined') { // Client-side check
-      localStorage.setItem('token', idToken);
-    }
+    localStorage.setItem('token', idToken);
+    window.location.assign('/');
   }
 
   logout() {
-    if (typeof window !== 'undefined') { // Client-side check
-      localStorage.removeItem('token');
-    }
+    localStorage.removeItem('token');
+    window.location.assign('/');
   }
 }
 
