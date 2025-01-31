@@ -30,9 +30,9 @@ export default async function handler(
       }
 
       const token = jwt.sign(
-        { userId: user.id, email: user.email },
+        { userId: user.id, username: user.username },
         process.env.JWT_SECRET!, // Non-null assertion as we know it's defined
-        { expiresIn: '1h' }
+        { expiresIn: '200h' }
       );
 
       res.setHeader('Set-Cookie', `token=${token}; HttpOnly; Secure; Path=/; Max-Age=3600`);

@@ -1,3 +1,6 @@
+import AuthService from '../api/auth/auth';
+import { JwtPayload } from 'jwt-decode';
+
 export default function Nav() {
     return (
         <nav>
