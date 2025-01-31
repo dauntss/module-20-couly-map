@@ -14,11 +14,23 @@ async function getData() {
 }
 
 export async function users(username: string, password: string) {
-  const response = await sql('SELECT * FROM users WHERE username = $1 AND password = $2', [username, password]);
-  return response[0];
+  const response = await sql('SELECT * FROM users WHERE username = $1', [username]);
+  const user = response[0];
+
+  if (user && await bcrypt.compare(password, user.password)) {
+    return user;
+  } else {
+    throw new Error('Invalid credentials');
+  }
 }
 
 export async function comments() {
   const response = await sql`SELECT * FROM comments`;
   return response;
+}
+
+export async function registerUser(username: string, password: string) {
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const response = await sql('INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *', [username, hashedPassword]);
+  return response[0];
 }

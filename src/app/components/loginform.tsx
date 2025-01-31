@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import {users} from '../lib/data';
+import { users } from '../lib/data';
 import { useRouter } from 'next/navigation';
 import AuthService from '../api/auth/auth';
 
@@ -9,16 +9,21 @@ const LoginForm: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const Router = useRouter();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => { 
     e.preventDefault();
     setError('');
 
-    const userresponse = await users(username, password); 
-    if (userresponse) {
-      AuthService.login(userresponse.token);
-      Router.push('/wiki');
+    try {
+      const userresponse = await users(username, password); 
+      if (userresponse) {
+        AuthService.login(userresponse.token);
+        router.push('/wiki');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      setError('Invalid username or password');
     }
   };
 
