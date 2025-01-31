@@ -12,8 +12,8 @@ async function getData() {
   return response[0].version;
 }
 
-export async function users() {
-  const response = await sql`SELECT * FROM users`;
+export async function users(username: string, password: string) {
+  const response = await sql('SELECT * FROM users WHERE username = $1 AND password = $2', [username, password]);
   return response[0];
 }
 

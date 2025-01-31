@@ -100,6 +100,12 @@ export default function Page() {
               <p>{comment.commenttext}</p>
             </div>
           ))}
+          <h2>Add Comment</h2>
+          <form className="commentForm">
+            <label htmlFor="comment">Comment</label>
+            <textarea id="comment" name="comment" />
+            <button type="submit">Submit</button>
+          </form>
         </main>
       )}
     </>
