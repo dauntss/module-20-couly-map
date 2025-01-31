@@ -1,4 +1,5 @@
-import Page from './page';
+'use client';
+
 import Nav from '../components/nav';
 import "../ui/wiki.css";
 import "../ui/globals.css";

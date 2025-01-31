@@ -1,6 +1,7 @@
 'use server';
 
 import { neon } from '@neondatabase/serverless';
+import bcrypt from 'bcrypt';
 
 if (!process.env.NEXT_PUBLIC_DATABASE_URL) {
   throw new Error('DATABASE_URL not set');

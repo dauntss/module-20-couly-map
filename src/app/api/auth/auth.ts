@@ -22,6 +22,7 @@ class AuthService {
       catch (err) {
         return false;
     }
+    return false;
   }
 
   getToken(): string {

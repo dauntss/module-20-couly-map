@@ -31,12 +31,12 @@ export default async function handler(
 
       const token = jwt.sign(
         { userId: user.id, username: user.username },
-        process.env.JWT_SECRET!, // Non-null assertion as we know it's defined
+        process.env.JWT_SECRET!, 
         { expiresIn: '200h' }
       );
 
-      res.setHeader('Set-Cookie', `token=${token}; HttpOnly; Secure; Path=/; Max-Age=3600`);
-      res.status(200).json({ message: 'Login successful' });
+      res.setHeader('Set-Cookie', `token=${token}; HttpOnly; Secure; Path=/; Max-Age=7200000`);
+      res.status(200).json({ message: 'Login successful', token });
 
     } catch (error) {
       console.error("Login error:", error);
