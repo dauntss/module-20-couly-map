@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import "./ui/globals.css";
 import { Cinzel, Lusitana } from 'next/font/google';
+import { SessionProvider } from "next-auth/react"
 
 const cinzel = Cinzel({subsets: ['latin']});
 const lusitana = Lusitana({
     weight: ['400', '700'],
     style: ['normal'],
-    subsets: ['latin']});
+    subsets: ['latin']}
+);
 
 export const metadata: Metadata = {
   title: "Map of Couly",
@@ -23,8 +25,10 @@ export default function RootLayout({
       <head>
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
       </head>
-      <body>
-        {children}
+      <body className={`${cinzel.className} ${lusitana.className}`}>
+        <SessionProvider>
+          {children}
+        </SessionProvider>
       </body>
     </html>
   );

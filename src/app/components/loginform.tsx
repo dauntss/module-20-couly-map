@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { users } from '../lib/data';
 import { useRouter } from 'next/navigation';
-import AuthService from '../api/auth/auth';
+import AuthService from '../api/auth/authlogic';
 
 const LoginForm: React.FC = () => {  
   const [username, setUsername] = useState('');
@@ -17,9 +17,10 @@ const LoginForm: React.FC = () => {
 
     try {
       const userresponse = await users(username, password); 
+      console.log(userresponse);
       if (userresponse) {
         AuthService.login(userresponse.token);
-        router.push('/wiki');
+        // router.push('/wiki');
       }
     } catch (error) {
       console.error('Login error:', error);

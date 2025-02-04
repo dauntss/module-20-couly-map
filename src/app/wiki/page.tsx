@@ -1,14 +1,9 @@
 'use client';
 
-import { comments } from '../lib/data';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-
-interface Comment {
-  id: string;
-  username: string;
-  commenttext: string;
-}
+import CommentForm from '../components/commentForm';
+import CommentList from '../components/commentList';
 
 interface KingdomData {
     nickname: string;
@@ -47,67 +42,45 @@ export default function Page() {
   const kingdoms: string[] = Object.keys(kingdomData);
   const sites: string[] = Object.keys(sitesData);
 
-  const [data, setData] = useState<Comment[] | null>(null);
+  const [commentsUpdated, setCommentsUpdated] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await comments() as Comment[];
-      setData(result);
-    }
-    fetchData();
-  }, []);
+  const handleCommentAdded = () => {
+    setCommentsUpdated(!commentsUpdated);
+  };
 
   return (
-    <>
-      {/* Conditionally render based on data */}
-      {!data ? (
-        <div>No Comments Yet.</div>
-      ) : !Array.isArray(data) ? (
-        <div>No Comments Available.</div>
-      ) : (
-        <main>
-          <h1>Wiki</h1>
-          <h2>Kingdoms</h2>
-          <div className="kingdoms">
-            {kingdoms.map((kingdom) => {
-              const kingdomInfo = kingdomData[kingdom];
-              const nickname = kingdomInfo ? kingdomInfo.nickname : 'default-nickname';
+    <main>
+      <h1>Pages</h1>
+      <h2>Kingdoms</h2>
+      <div className="kingdoms">
+        {kingdoms.map((kingdom) => {
+          const kingdomInfo = kingdomData[kingdom];
+          const nickname = kingdomInfo? kingdomInfo.nickname: 'default-nickname';
 
-              return (
-                  <Link href={`/wiki/${nickname}`} key={kingdom}>
-                      {kingdom}
-                  </Link>
-              );
-              })}
-          </div>
-          <h2>Significant Sites</h2>
-          <div className="sites">
-            {sites.map((site) => {
-              const siteInfo = sitesData[site];
-              const url = siteInfo ? siteInfo.url : 'default-url';
+          return (
+            <Link href={`/wiki/${nickname}`} key={kingdom}>
+              {kingdom}
+            </Link>
+          );
+        })}
+      </div>
+      <h2>Significant Sites</h2>
+      <div className="sites">
+        {sites.map((site) => {
+          const siteInfo = sitesData[site];
+          const url = siteInfo? siteInfo.url: 'default-url';
 
-              return (
-              <Link href={`/wiki/${url}`} key={site}>
-                  {site}
-              </Link>
-            )}
-            )}
-            </div>
-          <h2>Comments</h2>
-          {data.map((comment) => (
-            <div className="singleComment" key={comment.id}>
-              <h3>{comment.username}</h3>
-              <p>{comment.commenttext}</p>
-            </div>
-          ))}
-          <h2>Add Comment</h2>
-          <form className="commentForm">
-            <label htmlFor="comment">Comment</label>
-            <textarea id="comment" name="comment" />
-            <button type="submit">Submit</button>
-          </form>
-        </main>
-      )}
-    </>
+          return (
+            <Link href={`/wiki/${url}`} key={site}>
+              {site}
+            </Link>
+          );
+        })}
+      </div>
+      <h2>Comments</h2>
+      <CommentList updateTrigger={commentsUpdated}  />
+      <h2>Add Comment</h2>
+      <CommentForm onCommentAdded={handleCommentAdded} />
+    </main>
   );
 }

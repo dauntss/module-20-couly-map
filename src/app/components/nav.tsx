@@ -1,46 +1,21 @@
 'use client';
 
-import AuthService from '../api/auth/auth';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import Signin from './sign-in';
+import UserName from './username';
 
-export default function Nav() {
-    const [loggedIn, setLoggedIn] = useState(false);
-    const router = useRouter();
-
-    useEffect(() => {
-        const checkLoginStatus = () => {
-            const loggedIn = AuthService.loggedIn();
-            console.log('Logged In:', loggedIn);
-            setLoggedIn(loggedIn);
-        };
-
-        checkLoginStatus();
-
-        window.addEventListener('storage', checkLoginStatus);
-
-        return () => {
-            window.removeEventListener('storage', checkLoginStatus);
-        };
-    }, []);
-
-    const handleLogout = () => {
-        AuthService.logout();
-        setLoggedIn(false); 
-        router.push('/wiki');
-      };
+const Nav: React.FC = () => {
 
     return (
         <nav>
             <ul>
-                <li><a href="/wiki">Wiki Home</a></li>
-                <li><a href="/">Return to Map</a></li>
-                {loggedIn ? (
-                    <li><a href="/wiki" onClick={handleLogout}>Logout</a></li>
-                ) : (
-                <li><a href="/wiki/login">Login or Register</a></li>
-                )}
+                <li><Link href="/wiki">All Pages</Link></li>
+                <li><Link href="/">Return to Map</Link></li>
+                <li>Welcome, <UserName /></li>
+                <li><Signin /></li>
             </ul>
         </nav>
-    )
-}
+    );
+};
+
+export default Nav;

@@ -1,44 +1,14 @@
-'use client';
+import NextAuth from "next-auth"
+import GitHub from "next-auth/providers/github"
+ 
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  providers: [
+      GitHub({
+          clientId: process.env.AUTH_GITHUB_ID,
+          clientSecret: process.env.AUTH_GITHUB_SECRET,
+      }),
+  ],
+  secret: process.env.AUTH_SECRET,
+});
 
-import { JwtPayload, jwtDecode } from 'jwt-decode';
-
-class AuthService {
-  getProfile() {
-    return jwtDecode(this.getToken());
-  }
-
-  loggedIn() {
-    const token = this.getToken();
-    return !!token && !this.isTokenExpired(token);
-  }
-  
-  isTokenExpired(token: string) {
-    try {
-      const decoded = jwtDecode<JwtPayload>(token);
-      if (decoded?.exp && decoded?.exp < Date.now() / 1000) {
-        return true;
-      }
-    }
-      catch (err) {
-        return false;
-    }
-    return false;
-  }
-
-  getToken(): string {
-    const loggedUser = localStorage.getItem('token') || '';
-    return loggedUser;
-  }
-
-  login(idToken: string) {
-    localStorage.setItem('token', idToken);
-    window.location.assign('/wiki');
-  }
-
-  logout() {
-    localStorage.removeItem('token');
-    window.location.assign('/wiki');
-  }
-}
-
-export default new AuthService();
+export { handlers as GET, handlers as POST };
