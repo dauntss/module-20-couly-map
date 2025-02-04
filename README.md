@@ -1,36 +1,42 @@
+# Map of the Realm of Couly
+
+![license](https://img.shields.io/badge/License-None-blue) 
+[![dauntss](https://img.shields.io/badge/created_by-dauntss-deeppink)](http://github.com/dauntss)
+
+## Description
+
+![Screencap of a fantasy map](./public/images/readme1.png)
+![Screencap of a fantasy world's wiki page](./public/images/readme2.png)
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Installation
+
+Visit [https://realm-of-couly.vercel.app/](https://realm-of-couly.vercel.app/)
+
+## Usage
+
+Learn all about the fantasy realm of Couly!
+
+## Contributing
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+- Typescript
+- OAuth/NextAuth
+- Leaflet
+- Vercel
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## License 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Licensed under None
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+N/A
